@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import Header from './components/Header'
-import VinylCarousel3D from './components/VinylCarousel3D'
+import CardStack3D from './components/CardStack3D'
 import './App.css'
 
 function App() {
@@ -8,9 +8,9 @@ function App() {
     <div className="app">
       <Header />
 
-      {/* 3D Vinyl Carousel - Full Page Hero */}
+      {/* 3D Card Stack - Vertical Infinite Scroll */}
       <Suspense fallback={<div className="loading">Loading...</div>}>
-        <VinylCarousel3D />
+        <CardStack3D />
       </Suspense>
 
       {/* Footer */}
