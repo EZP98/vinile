@@ -4,13 +4,8 @@
   height: 100vh;
   min-height: 600px;
   background: #000000;
-  cursor: grab;
-  touch-action: none;
+  touch-action: pan-y;
   overflow: hidden;
-}
-
-.card-stack-container:active {
-  cursor: grabbing;
 }
 
 /* Gradient overlays - subtle blur effect */
