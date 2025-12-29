@@ -42,19 +42,20 @@ const VinylBox = ({ index, scrollX, cover, spineColor, totalCards, isHovered, on
   useFrame(() => {
     if (!groupRef.current) return
 
-    const cardSpacing = 0.25
+    const cardSpacing = 0.35
     const baseX = index * cardSpacing
-    const scrollOffset = scrollX * 0.05
+    const scrollOffset = scrollX * 0.04
 
     let x = baseX - scrollOffset
     const totalWidth = totalCards * cardSpacing
 
-    // Infinite wrap
-    while (x < -totalWidth / 2) x += totalWidth
-    while (x > totalWidth / 2) x -= totalWidth
+    // Infinite wrap - wrap only when FAR outside view
+    const wrapThreshold = totalWidth * 0.8
+    while (x < -wrapThreshold) x += totalWidth
+    while (x > wrapThreshold) x -= totalWidth
 
     // Position boxes in a row
-    groupRef.current.position.set(x * 6, 0, 0)
+    groupRef.current.position.set(x * 4.5, 0, 0)
 
     // Hover animation - tilt to show more cover
     const targetHover = isHovered ? 1 : 0
@@ -176,7 +177,7 @@ const ShelfScene = ({ scrollX, hoveredId, setHoveredId }: {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.position.set(0, 2, 7)
+    camera.position.set(0, 1.5, 9)
     camera.lookAt(0, 0, 0)
   }, [camera])
 
@@ -293,7 +294,7 @@ const CardStack3D = () => {
       onPointerLeave={handlePointerUp}
     >
       <Canvas
-        camera={{ fov: 45, position: [0, 2, 7] }}
+        camera={{ fov: 50, position: [0, 1.5, 9] }}
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
       >
