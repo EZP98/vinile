@@ -1,20 +1,23 @@
+import './Header.css'
+
 const Header = () => {
   return (
     <header className="header">
-      <a href="/" className="logo">
-        <div className="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" fill="none" />
-            <circle cx="12" cy="12" r="3" fill="white" />
-          </svg>
-        </div>
-        <span className="logo-text">Vinile</span>
-      </a>
+      <a href="/" className="logo">VINILE</a>
 
       <nav className="nav">
-        <a href="#collection" className="nav-link">Collection</a>
-        <a href="#about" className="nav-link">About</a>
-        <a href="#contact" className="nav-link">Contact</a>
+        <a href="#collection" className="nav-link">
+          <span className="nav-text">COLLECTION</span>
+          <span className="nav-text-hover">COLLECTION</span>
+        </a>
+        <a href="#about" className="nav-link">
+          <span className="nav-text">ABOUT</span>
+          <span className="nav-text-hover">ABOUT</span>
+        </a>
+        <a href="#contact" className="nav-link">
+          <span className="nav-text">CONTACT</span>
+          <span className="nav-text-hover">CONTACT</span>
+        </a>
       </nav>
     </header>
   )
