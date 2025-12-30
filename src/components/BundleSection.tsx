@@ -18,53 +18,37 @@ const BundleSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate each vinyl on scroll
       gsap.utils.toArray<HTMLElement>('.vinyl-viewport').forEach((section) => {
         const img = section.querySelector('.vinyl-image') as HTMLElement
 
-        // Entry animation - scale up and rotate
+        // Entry: scale up and fade in from below
         gsap.fromTo(img,
-          {
-            scale: 0.6,
-            rotation: -15,
-            opacity: 0,
-          },
+          { scale: 0.8, opacity: 0, y: 100 },
           {
             scale: 1,
-            rotation: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            y: 0,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: 'top 80%',
-              end: 'top 20%',
+              start: 'top bottom',
+              end: 'top center',
               scrub: 1,
             }
           }
         )
 
-        // Parallax effect - slight movement
+        // Exit: slide up and fade out
         gsap.to(img, {
-          yPercent: -10,
-          ease: 'none',
+          y: -150,
+          scale: 0.9,
+          opacity: 0,
+          ease: 'power2.in',
           scrollTrigger: {
             trigger: section,
-            start: 'top bottom',
+            start: 'bottom center',
             end: 'bottom top',
-            scrub: true,
-          }
-        })
-
-        // Exit animation - gentle scale down and fade
-        gsap.to(img, {
-          scale: 0.85,
-          opacity: 0.4,
-          scrollTrigger: {
-            trigger: section,
-            start: 'center 30%',
-            end: 'bottom -20%',
-            scrub: 2,
+            scrub: 1,
           }
         })
       })
@@ -77,7 +61,9 @@ const BundleSection = () => {
     <div className="vinyl-showcase" ref={containerRef}>
       {vinyls.map((vinyl, index) => (
         <section key={index} className="vinyl-viewport">
-          <img src={vinyl.src} alt={vinyl.alt} className="vinyl-image" />
+          <div className="vinyl-sticky">
+            <img src={vinyl.src} alt={vinyl.alt} className="vinyl-image" />
+          </div>
         </section>
       ))}
     </div>
