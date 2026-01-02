@@ -1,6 +1,6 @@
 .vinyl-card-scroll-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 600px;
   padding: 80px 0;
   background: linear-gradient(180deg, var(--bg-primary) 0%, #0f0f0f 50%, var(--bg-primary) 100%);
   overflow: hidden;

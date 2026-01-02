@@ -1,7 +1,7 @@
 /* Vinyl Showcase - Grid Layout */
 .vinyl-showcase {
   width: 100%;
-  min-height: 100vh;
+  min-height: 500px;
   position: relative;
   background: #000 url('/background-vinyl.png') center center / cover no-repeat fixed;
   overflow: visible;

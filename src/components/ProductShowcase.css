@@ -1,7 +1,7 @@
 .product-showcase {
   position: relative;
   padding: 120px 40px;
-  min-height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 }
 
